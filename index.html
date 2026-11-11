@@ -1,0 +1,1946 @@
+<!doctype html>
+<html lang="te">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Truth Telugu Official</title>
+    <meta name="description" content="Truth Telugu Official - A luxury glassmorphism SPA for Telugu mythology, history, and sacred stories." />
+    <meta property="og:title" content="Truth Telugu Official" />
+    <meta property="og:description" content="Truth Telugu Official - A luxury glassmorphism SPA for Telugu mythology, history, and sacred stories." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Cinzel for luxury headings, Mukta for authentic Telugu text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Mukta:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ==========================================================================
+         RESET & THEME VARIABLES
+         ========================================================================== */
+      :root {
+        --font-serif: 'Cinzel', serif;
+        --font-telugu: 'Mukta', 'Plus Jakarta Sans', sans-serif;
+        --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+        --bg-page: #06080d;
+        --bg-glass-card: rgba(14, 18, 26, 0.82);
+        --bg-glass-inner: rgba(22, 28, 40, 0.7);
+        --glass-border: rgba(255, 255, 255, 0.12);
+        --glass-border-hover: rgba(56, 189, 248, 0.55);
+
+        --color-text-primary: #f8fafc;
+        --color-text-secondary: rgba(226, 232, 240, 0.84);
+        --color-text-muted: rgba(148, 163, 184, 0.72);
+
+        --color-gold: #f59e0b;
+        --color-gold-light: #fbbf24;
+        --color-cyan: #38bdf8;
+        --color-cyan-glow: rgba(56, 189, 248, 0.4);
+
+        --radius-app: 32px;
+        --radius-hero: 26px;
+        --radius-card: 20px;
+        --radius-pill: 9999px;
+
+        --shadow-app: 0 35px 80px -15px rgba(0, 0, 0, 0.85), 0 0 90px -25px rgba(245, 158, 11, 0.12);
+        --shadow-glow: 0 0 25px rgba(56, 189, 248, 0.35);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        min-height: 100vh;
+        background-color: var(--bg-page);
+        background-image: 
+          radial-gradient(circle at 50% 0%, rgba(245, 158, 11, 0.12) 0%, transparent 50%),
+          radial-gradient(circle at 85% 30%, rgba(225, 29, 72, 0.08) 0%, transparent 45%),
+          radial-gradient(circle at 15% 70%, rgba(56, 189, 248, 0.09) 0%, transparent 50%),
+          linear-gradient(180deg, #0d0f15 0%, #06080d 100%);
+        background-attachment: fixed;
+        color: var(--color-text-primary);
+        font-family: var(--font-telugu);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 32px 16px;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Ambient floating glowing light orbs */
+      .ambient-glow-1 {
+        position: fixed;
+        top: 8%;
+        left: 18%;
+        width: 480px;
+        height: 480px;
+        background: radial-gradient(circle, rgba(245, 158, 11, 0.14) 0%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(85px);
+        pointer-events: none;
+        z-index: 0;
+        animation: floatOrb 18s ease-in-out infinite alternate;
+      }
+
+      .ambient-glow-2 {
+        position: fixed;
+        bottom: 12%;
+        right: 16%;
+        width: 520px;
+        height: 520px;
+        background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(95px);
+        pointer-events: none;
+        z-index: 0;
+        animation: floatOrb 22s ease-in-out infinite alternate-reverse;
+      }
+
+      @keyframes floatOrb {
+        0% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(35px, -25px) scale(1.08); }
+        100% { transform: translate(-30px, 35px) scale(0.96); }
+      }
+
+      /* ==========================================================================
+         MAIN CANVAS (Glassmorphism Dashboard matching the mock-up)
+         ========================================================================== */
+      .mythology-app {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 1100px;
+        background: var(--bg-glass-card);
+        backdrop-filter: blur(36px) saturate(180%);
+        -webkit-backdrop-filter: blur(36px) saturate(180%);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-app);
+        box-shadow: var(--shadow-app);
+        padding: 34px 40px 38px 40px;
+        overflow: hidden;
+        transition: min-height 0.3s ease;
+      }
+
+      /* Dynamic blurred backdrop reflecting hero image */
+      .app-dynamic-backdrop {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        filter: blur(65px) brightness(0.32);
+        opacity: 0.42;
+        z-index: -1;
+        transform: scale(1.18);
+        pointer-events: none;
+        transition: background-image 1.2s ease-in-out;
+      }
+
+      /* ==========================================================================
+         NAVIGATION BAR
+         ========================================================================== */
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 28px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        text-align: left;
+      }
+
+      .logo-title {
+        font-family: var(--font-serif);
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+        letter-spacing: 0.04em;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .logo-accent {
+        color: var(--color-cyan);
+        font-weight: 600;
+        text-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+      }
+
+      .logo-dot {
+        width: 7px;
+        height: 7px;
+        background: #f43f5e;
+        border-radius: 50%;
+        display: inline-block;
+        box-shadow: 0 0 10px #f43f5e;
+      }
+
+      .logo-sub {
+        font-family: var(--font-serif);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--color-gold-light);
+        margin-top: -2px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+        list-style: none;
+      }
+
+      .nav-links button {
+        background: none;
+        border: none;
+        font-family: var(--font-serif);
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(226, 232, 240, 0.75);
+        text-decoration: none;
+        position: relative;
+        padding: 6px 0;
+        cursor: pointer;
+        transition: color 0.25s ease, text-shadow 0.25s ease;
+      }
+
+      .nav-links button:hover,
+      .nav-links button.active {
+        color: #ffffff;
+        text-shadow: 0 0 14px rgba(255, 255, 255, 0.6);
+      }
+
+      .nav-links button.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--color-cyan), transparent);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .icon-btn {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #e2e8f0;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
+
+      .icon-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #ffffff;
+        border-color: rgba(255, 255, 255, 0.25);
+        transform: translateY(-1px);
+        box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+      }
+
+      .search-container {
+        position: relative;
+      }
+
+      .search-box {
+        position: absolute;
+        right: 0;
+        top: 48px;
+        width: 290px;
+        background: rgba(15, 20, 30, 0.95);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 12px;
+        padding: 8px 12px;
+        display: none;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        z-index: 50;
+      }
+
+      .search-box.open {
+        display: flex;
+        animation: fadeInDown 0.2s ease-out forwards;
+      }
+
+      .search-box input {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #ffffff;
+        font-family: var(--font-telugu);
+        font-size: 14px;
+        width: 100%;
+      }
+
+      .search-box input::placeholder {
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      /* ==========================================================================
+         VIEW 1: HOME VIEW (HERO & 3-CARD GRID)
+         ========================================================================== */
+      .spa-view {
+        transition: opacity 0.35s ease, transform 0.35s ease;
+      }
+
+      .spa-view.hidden {
+        display: none;
+      }
+
+      .spa-view.active {
+        display: block;
+        animation: fadeInView 0.35s ease-out;
+      }
+
+      @keyframes fadeInView {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Hero Section (Top Large Card) */
+      .hero-card {
+        position: relative;
+        width: 100%;
+        height: 420px;
+        border-radius: var(--radius-hero);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 30px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+        z-index: 1;
+      }
+
+      .hero-card:hover .hero-bg {
+        transform: scale(1.04);
+        filter: brightness(1.05);
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(10, 14, 20, 0.35) 0%,
+          rgba(10, 14, 20, 0.68) 55%,
+          rgba(10, 14, 20, 0.92) 100%
+        );
+        z-index: 2;
+        transition: background 0.4s ease;
+      }
+
+      .hero-card:hover .hero-overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(10, 14, 20, 0.25) 0%,
+          rgba(10, 14, 20, 0.58) 55%,
+          rgba(10, 14, 20, 0.88) 100%
+        );
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 780px;
+        margin: auto;
+      }
+
+      .hero-title-main {
+        font-family: var(--font-serif);
+        font-size: clamp(2.4rem, 5.8vw, 4.4rem);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #f3f4f6;
+        text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85);
+        margin-bottom: 6px;
+        transition: color 0.3s ease;
+      }
+
+      .hero-title-sub {
+        font-family: var(--font-serif);
+        font-size: clamp(1.4rem, 3.2vw, 2.5rem);
+        font-weight: 800;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--color-cyan);
+        text-shadow: 0 0 28px rgba(56, 189, 248, 0.7);
+        margin-bottom: 18px;
+        display: block;
+      }
+
+      .hero-card:hover .hero-title-main {
+        color: #ffffff;
+      }
+
+      .hero-description {
+        font-family: var(--font-telugu);
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.65;
+        color: rgba(226, 232, 240, 0.9);
+        max-width: 620px;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+        margin-bottom: 20px;
+      }
+
+      .hero-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-serif);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        padding: 9px 24px;
+        border-radius: var(--radius-pill);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      }
+
+      .hero-card:hover .hero-btn {
+        background: rgba(56, 189, 248, 0.25);
+        border-color: rgba(56, 189, 248, 0.6);
+        box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+        transform: translateY(-2px);
+      }
+
+      /* Bottom Grid Section (DESTINATION Style Cards) */
+      .section-header-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 34px 0 18px 4px;
+      }
+
+      .section-title {
+        font-family: var(--font-serif);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #e2e8f0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .section-title::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 14px;
+        background: var(--color-cyan);
+        border-radius: 2px;
+      }
+
+      .feed-status-tag {
+        font-family: var(--font-sans);
+        font-size: 11px;
+        letter-spacing: 0.05em;
+        color: rgba(226, 232, 240, 0.6);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .status-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #10b981;
+        box-shadow: 0 0 8px #10b981;
+      }
+
+      .stories-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        width: 100%;
+      }
+
+      .story-card {
+        position: relative;
+        height: 185px;
+        border-radius: var(--radius-card);
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        box-shadow: 0 14px 30px -8px rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        cursor: pointer;
+        user-select: none;
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                    border-color 0.4s ease,
+                    box-shadow 0.4s ease;
+      }
+
+      .story-card-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+        z-index: 1;
+      }
+
+      .story-card:hover .story-card-bg {
+        transform: scale(1.08);
+        filter: brightness(1.08);
+      }
+
+      .story-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(8, 12, 18, 0.3) 0%,
+          rgba(8, 12, 18, 0.65) 60%,
+          rgba(8, 12, 18, 0.82) 100%
+        );
+        backdrop-filter: blur(1.5px);
+        -webkit-backdrop-filter: blur(1.5px);
+        z-index: 2;
+        transition: background 0.3s ease;
+      }
+
+      .story-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(56, 189, 248, 0.5);
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.25);
+      }
+
+      .story-card:hover .story-card-overlay {
+        background: linear-gradient(
+          180deg,
+          rgba(8, 12, 18, 0.2) 0%,
+          rgba(8, 12, 18, 0.5) 60%,
+          rgba(8, 12, 18, 0.75) 100%
+        );
+      }
+
+      .story-title {
+        position: relative;
+        z-index: 3;
+        font-family: var(--font-serif);
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #f8fafc;
+        text-align: center;
+        text-shadow: 0 3px 14px rgba(0, 0, 0, 0.95);
+        padding: 0 10px;
+        transition: color 0.3s ease, letter-spacing 0.3s ease;
+      }
+
+      .story-card:hover .story-title {
+        color: #ffffff;
+        letter-spacing: 0.16em;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 3px 14px rgba(0, 0, 0, 0.95);
+      }
+
+      /* Extra row for posts 4, 5, 6 when fetched */
+      .extra-stories-wrap {
+        margin-top: 24px;
+        display: none;
+      }
+
+      .extra-stories-wrap.has-posts {
+        display: block;
+      }
+
+      /* ==========================================================================
+         VIEW 2: ARTICLE READING VIEW (SPA In-App Reader - No Redirection!)
+         ========================================================================== */
+      .article-view {
+        position: relative;
+        width: 100%;
+        min-height: 400px;
+      }
+
+      .reader-top-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .back-home-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+        font-family: var(--font-telugu);
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 22px;
+        border-radius: var(--radius-pill);
+        cursor: pointer;
+        backdrop-filter: blur(12px);
+        transition: all 0.25s ease;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      }
+
+      .back-home-btn:hover {
+        background: rgba(56, 189, 248, 0.2);
+        border-color: rgba(56, 189, 248, 0.6);
+        box-shadow: 0 0 22px rgba(56, 189, 248, 0.35);
+        transform: translateX(-3px);
+      }
+
+      .back-home-btn svg {
+        transition: transform 0.25s ease;
+      }
+
+      .back-home-btn:hover svg {
+        transform: translateX(-3px);
+      }
+
+      .reader-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .reader-hero {
+        position: relative;
+        width: 100%;
+        height: 320px;
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 32px;
+        margin-bottom: 30px;
+      }
+
+      .reader-hero-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+      }
+
+      .reader-hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(10, 14, 20, 0.2) 0%,
+          rgba(10, 14, 20, 0.7) 60%,
+          rgba(10, 14, 20, 0.95) 100%
+        );
+        z-index: 2;
+      }
+
+      .reader-hero-content {
+        position: relative;
+        z-index: 3;
+        max-width: 820px;
+      }
+
+      .reader-meta-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+
+      .reader-pill {
+        font-family: var(--font-serif);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--color-cyan);
+        background: rgba(56, 189, 248, 0.15);
+        border: 1px solid rgba(56, 189, 248, 0.35);
+        padding: 4px 12px;
+        border-radius: var(--radius-pill);
+      }
+
+      .reader-title {
+        font-family: var(--font-telugu);
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+        font-weight: 700;
+        line-height: 1.25;
+        color: #ffffff;
+        text-shadow: 0 3px 18px rgba(0, 0, 0, 0.9);
+      }
+
+      .reader-container {
+        max-width: 840px;
+        margin: 0 auto;
+        padding: 10px 10px 40px 10px;
+      }
+
+      .reader-article-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 20px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        margin-bottom: 28px;
+        font-size: 13px;
+        color: rgba(226, 232, 240, 0.75);
+      }
+
+      .reader-author {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        color: #ffffff;
+      }
+
+      .author-avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #f59e0b, #e11d48);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        color: #ffffff;
+        font-weight: bold;
+      }
+
+      /* Full Content Rich Typography (Supports Blogger HTML injection) */
+      .reader-content {
+        font-family: var(--font-telugu);
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.85;
+        color: #e2e8f0;
+      }
+
+      .reader-content p {
+        margin-bottom: 22px;
+      }
+
+      .reader-content h2,
+      .reader-content h3,
+      .reader-content h4 {
+        font-family: var(--font-telugu);
+        color: #ffffff;
+        font-weight: 700;
+        margin: 32px 0 16px 0;
+        line-height: 1.35;
+      }
+
+      .reader-content h2 {
+        font-size: 1.65rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        padding-bottom: 8px;
+        color: var(--color-cyan);
+      }
+
+      .reader-content h3 {
+        font-size: 1.35rem;
+        color: var(--color-gold-light);
+      }
+
+      .reader-content img {
+        max-width: 100% !important;
+        height: auto !important;
+        border-radius: 16px;
+        margin: 26px auto;
+        display: block;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+      }
+
+      .reader-content blockquote {
+        margin: 26px 0;
+        padding: 18px 24px;
+        background: rgba(255, 255, 255, 0.05);
+        border-left: 4px solid var(--color-cyan);
+        border-radius: 0 14px 14px 0;
+        font-style: italic;
+        color: rgba(241, 245, 249, 0.95);
+      }
+
+      .reader-content a {
+        color: var(--color-cyan);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      .reader-content ul,
+      .reader-content ol {
+        margin: 18px 0 22px 28px;
+      }
+
+      .reader-content li {
+        margin-bottom: 10px;
+      }
+
+      .reader-bottom-nav {
+        margin-top: 40px;
+        padding-top: 28px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      /* ==========================================================================
+         UTILITY & FOOTER BAR
+         ========================================================================== */
+      .bottom-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 32px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .brand-credit {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-telugu);
+        font-size: 13px;
+        color: rgba(226, 232, 240, 0.7);
+      }
+
+      .action-btns {
+        display: flex;
+        gap: 10px;
+      }
+
+      .tool-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: #cbd5e1;
+        font-family: var(--font-sans);
+        font-size: 12px;
+        font-weight: 500;
+        padding: 7px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s ease;
+      }
+
+      .tool-btn:hover {
+        background: rgba(255, 255, 255, 0.12);
+        color: #ffffff;
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+
+      /* Modal for Copying Single-File HTML Code */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.82);
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .modal-backdrop.open {
+        display: flex;
+        animation: fadeIn 0.2s ease-out;
+      }
+
+      .modal-panel {
+        background: #0f141c;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        width: 100%;
+        max-width: 680px;
+        max-height: 85vh;
+        overflow-y: auto;
+        padding: 26px;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+        color: #e2e8f0;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+
+      .modal-title {
+        font-family: var(--font-serif);
+        font-size: 18px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .close-btn {
+        background: none;
+        border: none;
+        color: #94a3b8;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 4px;
+        line-height: 1;
+      }
+
+      .close-btn:hover {
+        color: #ffffff;
+      }
+
+      .code-container {
+        position: relative;
+        background: #080b10;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        padding: 16px;
+        margin-top: 14px;
+        max-height: 360px;
+        overflow-y: auto;
+      }
+
+      .code-box {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 12px;
+        color: #38bdf8;
+        white-space: pre-wrap;
+        word-break: break-all;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid var(--color-cyan);
+        color: #ffffff;
+        padding: 12px 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(56, 189, 248, 0.3);
+        font-family: var(--font-telugu);
+        font-size: 14px;
+        z-index: 2000;
+        display: none;
+        animation: slideUp 0.3s ease-out;
+      }
+
+      .toast.show {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      @keyframes slideUp {
+        from { transform: translateY(20px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+
+      /* Responsive rules */
+      @media (max-width: 960px) {
+        .mythology-app {
+          padding: 26px 24px;
+        }
+
+        .hero-card {
+          height: 380px;
+        }
+
+        .stories-grid {
+          gap: 16px;
+        }
+
+        .story-title {
+          font-size: 1.15rem;
+        }
+
+        .reader-hero {
+          height: 260px;
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 12px 8px;
+        }
+
+        .mythology-app {
+          border-radius: 20px;
+          padding: 20px 16px;
+        }
+
+        .navbar {
+          flex-direction: column;
+          gap: 18px;
+          align-items: flex-start;
+        }
+
+        .nav-actions {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+
+        .nav-links {
+          gap: 20px;
+        }
+
+        .hero-card {
+          height: 350px;
+          border-radius: 18px;
+          padding: 20px 14px;
+        }
+
+        .hero-title-main {
+          font-size: 1.9rem;
+        }
+
+        .hero-title-sub {
+          font-size: 1.15rem;
+          letter-spacing: 0.2em;
+        }
+
+        .stories-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .story-card {
+          height: 150px;
+          border-radius: 16px;
+        }
+
+        .reader-hero {
+          height: 220px;
+          padding: 16px;
+        }
+
+        .reader-title {
+          font-size: 1.5rem;
+        }
+
+        .reader-content {
+          font-size: 16px;
+          line-height: 1.75;
+        }
+
+        .bottom-bar {
+          flex-direction: column;
+          gap: 16px;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Ambient Glow Orbs -->
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <!-- Main Glassmorphism Canvas Container -->
+    <main class="mythology-app" id="mainCanvas">
+      <!-- Dynamic Blurred Backdrop Layer -->
+      <div class="app-dynamic-backdrop" id="appBackdrop"></div>
+
+      <!-- 1. NAVIGATION BAR -->
+      <header class="navbar">
+        <!-- Left: Logo -->
+        <button class="nav-logo" id="logoBtn" title="Truth Telugu Official - హోమ్ పేజీ">
+          <div>
+            <div class="logo-title">
+              Truth Telugu <span class="logo-accent">Official</span>
+              <span class="logo-dot"></span>
+            </div>
+            <div class="logo-sub">ట్రూత్ తెలుగు అఫీషియల్ • TRUTH TELUGU OFFICIAL</div>
+          </div>
+        </button>
+
+        <!-- Center: Nav links (SPA In-App Triggers) -->
+        <nav>
+          <ul class="nav-links">
+            <li><button class="active" id="navHomeBtn">HOME</button></li>
+            <li><button id="navExploreBtn">EXPLORE</button></li>
+            <li><button id="navAboutBtn">ABOUT</button></li>
+          </ul>
+        </nav>
+
+        <!-- Right: Search Icon -->
+        <div class="nav-actions">
+          <div class="search-container">
+            <button class="icon-btn" id="searchToggleBtn" title="కథలను శోధించండి / Search Stories" aria-label="Search">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+            <div class="search-box" id="searchBox">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input type="text" id="searchInput" placeholder="శోధించండి... / Search..." />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ======================================================================
+           VIEW 1: HOME GRID VIEW (HERO BANNER & 3-CARD DESTINATION GRID)
+           ====================================================================== -->
+      <div class="spa-view active" id="homeView">
+        <!-- 2. HERO SECTION (Top Large Card - Index 0) -->
+        <section aria-label="Latest Hero Story">
+          <div id="heroCard" class="hero-card" role="button" tabindex="0" title="పూర్తి కథ చదవండి / Click to Read Full Story">
+            <div class="hero-bg" id="heroBg"></div>
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content">
+              <div class="hero-title-main" id="heroTitleMain">భారతీయ పౌరాణికం</div>
+              <div class="hero-title-sub" id="heroTitleSub">MYTHOLOGY</div>
+              <p class="hero-description" id="heroSnippet">
+                లోడింగ్ అవుతోంది... పవిత్ర భారతీయ పురాణాల నుండి అపురూపమైన కథనాలు, దైవ గాథలు మరియు ఆధ్యాత్మిక రహస్యాలు.
+              </p>
+              <span class="hero-btn" id="heroBtn">
+                కథ చదవండి / READ STORY
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. BOTTOM GRID SECTION (Next Latest Posts - Index 1, 2, 3) -->
+        <section aria-label="Next Latest Stories">
+          <div class="section-header-wrap">
+            <h2 class="section-title">LATEST STORIES</h2>
+            <div class="feed-status-tag" id="feedStatus">
+              <span class="status-dot"></span>
+              <span id="feedStatusText">Connecting to Blogger...</span>
+            </div>
+          </div>
+
+          <div class="stories-grid" id="storiesGrid">
+            <!-- Story Card 1 (Index 1) -->
+            <div id="card1" class="story-card" role="button" tabindex="0" title="పూర్తి కథ చదవండి / Click to Read">
+              <div class="story-card-bg" id="cardBg1"></div>
+              <div class="story-card-overlay"></div>
+              <h3 class="story-title" id="cardTitle1">శివ తాండవం</h3>
+            </div>
+
+            <!-- Story Card 2 (Index 2) -->
+            <div id="card2" class="story-card" role="button" tabindex="0" title="పూర్తి కథ చదవండి / Click to Read">
+              <div class="story-card-bg" id="cardBg2"></div>
+              <div class="story-card-overlay"></div>
+              <h3 class="story-title" id="cardTitle2">కురుక్షేత్రం</h3>
+            </div>
+
+            <!-- Story Card 3 (Index 3) -->
+            <div id="card3" class="story-card" role="button" tabindex="0" title="పూర్తి కథ చదవండి / Click to Read">
+              <div class="story-card-bg" id="cardBg3"></div>
+              <div class="story-card-overlay"></div>
+              <h3 class="story-title" id="cardTitle3">గరుడ పురాణం</h3>
+            </div>
+          </div>
+
+          <!-- Optional Extra Row for Posts 4, 5, 6 (since max-results=7) -->
+          <div class="extra-stories-wrap" id="extraStoriesWrap">
+            <div class="section-header-wrap" style="margin-top: 28px;">
+              <h2 class="section-title" style="font-size: 13px;">MORE SACRED STORIES</h2>
+            </div>
+            <div class="stories-grid" id="extraGrid">
+              <!-- Dynamically populated if posts 4, 5, 6 are fetched -->
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ======================================================================
+           VIEW 2: ARTICLE READING VIEW (SPA In-App Reader - NO Blogger Redirect)
+           ====================================================================== -->
+      <div class="spa-view hidden" id="articleView">
+        <article class="article-view">
+          <!-- Reader Top Action Bar -->
+          <div class="reader-top-bar">
+            <button class="back-home-btn" id="backHomeTopBtn" title="తిరిగి ప్రధాన జాబితాకు / Back to Home Grid">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              <span>← Back to Home / హోమ్‌కి తిరిగి వెళ్లండి</span>
+            </button>
+
+            <div class="reader-actions">
+              <button class="icon-btn" id="shareArticleBtn" title="ఈ కథను షేర్ చేయండి / Share Story">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Reader Hero Cover Image Banner -->
+          <div class="reader-hero">
+            <div class="reader-hero-bg" id="readerHeroBg"></div>
+            <div class="reader-hero-overlay"></div>
+            <div class="reader-hero-content">
+              <div class="reader-meta-pills">
+                <span class="reader-pill" id="readerCategory">Truth Telugu Official</span>
+                <span class="reader-pill" id="readerReadTime">5 MIN READ</span>
+              </div>
+              <h1 class="reader-title" id="readerTitle">కథ శీర్షిక</h1>
+            </div>
+          </div>
+
+          <!-- Reader Container with Meta & Full HTML Content -->
+          <div class="reader-container">
+            <div class="reader-article-meta">
+              <div class="reader-author">
+                <div class="author-avatar">T</div>
+                <span>Truth Telugu Official</span>
+              </div>
+              <div id="readerDate">పవిత్ర గాథ</div>
+            </div>
+
+            <!-- Full Post Content Injected Here from entry.content.$t -->
+            <div class="reader-content" id="readerContentBody">
+              <!-- Dynamically injected from entry.content.$t -->
+            </div>
+
+            <!-- Reader Bottom Navigation Card -->
+            <div class="reader-bottom-nav">
+              <button class="back-home-btn" id="backHomeBottomBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                <span>మరిన్ని కథలు చదవండి / Back to All Stories</span>
+              </button>
+              <button class="tool-btn" id="scrollToTopBtn">
+                పైకి వెళ్లండి / Top ↑
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- 4. BOTTOM BAR & TOOLS -->
+      <footer class="bottom-bar">
+        <div class="brand-credit">
+          <span class="logo-dot"></span>
+          <span>Truth Telugu Official • ట్రూత్ తెలుగు అఫీషియల్</span>
+        </div>
+
+        <div class="action-btns">
+          <button class="tool-btn" id="refreshFeedBtn" title="Reload Posts from Blogger">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"/>
+            </svg>
+            రిఫ్రెష్ / Refresh Feed
+          </button>
+          <button class="tool-btn" id="viewCodeBtn" title="Copy Single-File HTML Code">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            HTML కోడ్ పొందండి
+          </button>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Modal for Copying Single-File HTML Code -->
+    <div class="modal-backdrop" id="codeModal">
+      <div class="modal-panel">
+        <div class="modal-header">
+          <div class="modal-title">సింగిల్-ఫైల్ HTML / Single-File Code</div>
+          <button class="close-btn" id="closeModalBtn">&times;</button>
+        </div>
+        <p style="font-size: 13px; color: #94a3b8; line-height: 1.5;">
+          This code is 100% pure vanilla HTML, CSS, and JS (No React, No Tailwind). It features the real-time Blogger API integration (max-results=7), /s72-c to /s1000 high-res image enhancement, and the SPA In-App Article Reading View!
+        </p>
+        <div style="margin-top: 14px; display: flex; gap: 8px;">
+          <button class="tool-btn" id="copyCodeBtn" style="background: #2563eb; color: #ffffff; border-color: #3b82f6;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            క్లిప్‌బోర్డ్‌కి కాపీ చేయండి / Copy Code
+          </button>
+          <span id="copyFeedback" style="font-size: 12px; color: #10b981; align-self: center; display: none;">కాపీ అయ్యింది! Copied!</span>
+        </div>
+        <div class="code-container">
+          <pre class="code-box" id="codeDisplayArea">Loading HTML code...</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toast">
+      <span id="toastMessage">లింక్ కాపీ చేయబడింది! Link copied to clipboard.</span>
+    </div>
+
+    <!-- ==========================================================================
+         SPA & DYNAMIC BLOGGER API JAVASCRIPT
+         ========================================================================== -->
+    <script>
+      (function () {
+        'use strict';
+
+        // 1. Dynamic Blogger Feed Endpoint (max-results=7 as requested)
+        const BLOGGER_FEED_URL =
+          'https://littlebuddiestelugu.blogspot.com/feeds/posts/default?alt=json&max-results=7';
+
+        // Rich fallback Telugu mythology posts with high-res imagery & complete stories
+        // (Rendered automatically if the blog has 0 posts published yet or while loading)
+        const FALLBACK_POSTS = [
+          {
+            title: 'శ్రీరామ పట్టాభిషేకం - రామరాజ్య స్థాపన',
+            titleMain: 'శ్రీరామ పట్టాభిషేకం',
+            titleSub: 'RAMA RAJYAM',
+            snippet:
+              'అయోధ్యలో శ్రీరాముని పట్టాభిషేకం ధర్మ సంస్థాపనకు ప్రతీక. సీతా సమేత శ్రీరాముడి దివ్య పాలన విశ్వశాంతికి, సత్య పాలనకు ఆదర్శ మార్గదర్శకంగా నిలిచింది.',
+            image:
+              'https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1600&auto=format&fit=crop',
+            category: 'Truth Telugu Official',
+            readTime: '6 MIN READ',
+            content: `
+              <h2>అయోధ్యలో దివ్య వసంతం</h2>
+              <p>చతుర్దశ భువనాలలో శ్రీరాముని నామం సత్యానికి, ధర్మానికి ప్రతీక. పదునాలుగు సంవత్సరాల అరణ్యవాసం ముగించి, రావణ సంహారానంతరం సీతాదేవి, లక్ష్మణుడు, హనుమంతుడు, సుగ్రీవాది వానర సైన్యంతో శ్రీరామచంద్రుడు పుష్పక విమానంలో అయోధ్యా నగరానికి చేరుకున్నారు.</p>
+              
+              <blockquote>"రామో విగ్రహవాన్ ధర్మః సాధుః సత్యపరాక్రమః | రాజా సర్వస్య లోకస్య దేవానామివ వాసవః ||"</blockquote>
+              
+              <p>భరతుడు ఆనందబాష్పాలతో రాముని పాదపద్మాలకు నమస్కరించి, ఇన్నాళ్లూ తాను నందిగ్రామంలో భక్తితో పూజించిన శ్రీరాముని పాదుకలను సమర్పించి రాజ్యాన్ని అప్పగించాడు. అయోధ్యా నగరమంతా తోరణాలతో, సుగంధ ధూపదీపాలతో, వేద మంత్రోచ్ఛారణలతో పులకించిపోయింది.</p>
+              
+              <h2>మహోన్నత పట్టాభిషేక మహోత్సవం</h2>
+              <p>వసిష్ఠ మహర్షి, వామదేవుడు, జాబాలి తదితర సప్తర్షుల పర్యవేక్షణలో పవిత్ర సప్త సముద్రాల, పుణ్య నదీ జలాలతో రత్నసింహాసనంపై ఆసీనులైన సీతా సమేత శ్రీరామునికి దివ్య పట్టాభిషేకం జరిగింది. దేవతలు ఆకాశం నుండి పుష్పవృష్టి కురిపించారు, గంధర్వులు గానం చేశారు.</p>
+              
+              <p>రామరాజ్యంలో అధర్మం లేదు, ఆకలి దప్పులు లేవు, అకాల మరణాలు లేవు. వర్షాలు సమృద్ధిగా కురిసి, భూమి సస్యశ్యామలమైంది. ప్రజలందరూ సోదరభావంతో, పరస్పర గౌరవంతో జీవించారు. నేటికీ ఒక ఆదర్శవంతమైన పరిపాలనకు శ్రీరామ రాజ్యమే సర్వోత్తమ ప్రమాణంగా భావించబడుతోంది.</p>
+            `
+          },
+          {
+            title: 'శివ తాండవం - సృష్టి లయకారుడి విశ్వ నృత్యం',
+            snippet:
+              'పరమశివుని ఆనంద తాండవం సృష్టి, స్థితి, లయ, తిరోభావ, అనుగ్రహాలనే పంచకృత్యాల పరమార్థం.',
+            image:
+              'https://images.unsplash.com/photo-1609137144822-45e33d47f9e8?q=80&w=1200&auto=format&fit=crop',
+            category: 'శివపురాణం • తాండవం',
+            readTime: '4 MIN READ',
+            content: `
+              <h2>నటరాజ దివ్య స్వరూపం</h2>
+              <p>కైలాసపతి అయిన మహేశ్వరుడు నర్తించే పవిత్ర తాండవం విశ్వగమనానికి మూలశక్తి. భగవంతుని డమరుక నాదం నుండి సృష్టి ఆవిర్భవిస్తే, ఆయన అభయ హస్తం భక్తులకు రక్షణను ఇస్తుంది. చేతిలోని అగ్ని లయాన్ని, పాదాల కింద ఉన్న అపస్మార పురుషుడు అజ్ఞాన వినాశనాన్ని సూచిస్తాయి.</p>
+              
+              <blockquote>"ఓం నమః శంభవే చ మయోభవే చ నమః శంకరాయ చ మయస్కరాయ చ నమః శివాయ చ శివతరాయ చ ||"</blockquote>
+              
+              <p>చిదంబర క్షేత్రంలో పరమశివుడు ఆడిన ఆనంద తాండవం మనలోని అహంకారాన్ని తొలగించి, ఆత్మజ్ఞానమనే దివ్య ప్రకాశాన్ని కలిగిస్తుంది. శివుని జటాజూటంలో ప్రవహించే గంగాభవాని, మెడలోని నాగరాజు, నుదుటిపై వెలిగే మూడో కన్ను జ్ఞాన వైరాగ్యాల దివ్య రూపాలు.</p>
+            `
+          },
+          {
+            title: 'కురుక్షేత్రం - భగవద్గీతా దివ్యోపదేశం',
+            snippet:
+              'యుద్ధభూమిలో విషాదంలో మునిగిన అర్జునుడికి శ్రీకృష్ణ పరమాత్మ చేసిన అమృతతుల్య గీతోపదేశం.',
+            image:
+              'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=1200&auto=format&fit=crop',
+            category: 'మహాభారతం • భగవద్గీత',
+            readTime: '5 MIN READ',
+            content: `
+              <h2>ధర్మక్షేత్రే కురుక్షేత్రే</h2>
+              <p>కురుక్షేత్ర సంగ్రామంలో ఇరువైపులా ఉన్న బంధుమిత్రులను చూసి ధనుర్బాణాలను విడిచిపెట్టి కుంగిపోయిన పార్థుడిని కర్తవ్యోన్ముఖుడిని చేయడానికి శ్రీకృష్ణుడు చేసిన అమర ఉపదేశమే భగవద్గీత. ఇది కేవలం ఒక రణరంగ ఉపదేశం మాత్రమే కాదు, సమస్త మానవాళి జీవన మార్గదర్శిని.</p>
+              
+              <blockquote>"కర్మణ్యేవాధికారస్తే మా ఫలేషు కదాచన | మా కర్మఫలహేతుర్భూర్మా తే సఙ్గోఽస్త్వకర్మణి ||"</blockquote>
+              
+              <p>ఫలితంపై ఆశ లేకుండా నీ కర్తవ్యాన్ని నిష్కామంగా నిర్వర్తించడమే ఉత్తమ యోగమని భగవానుడు ప్రబోధించాడు. శ్రీకృష్ణుని విశ్వరూప సందర్శనంతో అర్జునుడి సందేహాలు పటాపంచలై, ధర్మ రక్షణార్థం గాండీవాన్ని సంధించాడు.</p>
+            `
+          },
+          {
+            title: 'గరుడ పురాణం - కర్మ సిద్ధాంత రహస్యాలు',
+            snippet:
+              'మానవుని జీవన విధానం, కర్మ ఫలాలు మరియు జీవాత్మ మోక్ష మార్గాలను విశదీకరించే పవిత్ర గ్రంథం.',
+            image:
+              'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=1200&auto=format&fit=crop',
+            category: 'పురాణాలు • కర్మ సిద్ధాంతం',
+            readTime: '5 MIN READ',
+            content: `
+              <h2>శ్రీమహావిష్ణువు - గరుత్మంతుని సంవాదం</h2>
+              <p>పక్షిరాజైన గరుత్మంతుడు శ్రీమహావిష్ణువును జీవుల పుట్టుక, మరణం, తదనంతర ప్రయాణం గురించి అడిగిన ప్రశ్నలకు విష్ణుమూర్తి ఇచ్చిన విపులమైన సమాధానమే గరుడ పురాణం. ఇది కేవలం పరలోక విషయాలను మాత్రమే కాక, సత్యమైన ధర్మబద్ధ జీవితాన్ని ఎలా గడపాలో వివరిస్తుంది.</p>
+              
+              <p>మంచి కర్మలు చేసిన వారికి సద్గతులు, పుణ్యలోకాలు ప్రాప్తిస్తాయని, ఇతరులకు హాని తలపెట్టేవారు తమ పాపకర్మల ఫలాన్ని అనుభవించక తప్పదని ఈ పురాణం హెచ్చరిస్తుంది. దానధర్మాలు, ఆపన్నులకు సహాయం చేయడం, భగవద్భక్తి మానవుడిని మోక్షమార్గం వైపు నడిపిస్తాయి.</p>
+            `
+          }
+        ];
+
+        // Global list of active posts
+        let activePosts = [...FALLBACK_POSTS];
+
+        // ====================================================================
+        // CRUCIAL: Blogger Image Quality Enhancement
+        // Replaces /s72-c with /s1000 in thumbnail URL strings to get high quality!
+        // ====================================================================
+        function getHighResThumbnail(url) {
+          if (!url) return '';
+          return url
+            .replace(/\/s72-c([^\/]*)\//, '/s1000/')
+            .replace(/\/s72-c\/?/, '/s1000/')
+            .replace(/\/w\d+-h\d+[^/]*\//, '/s1000/')
+            .replace(/\/s\d{2,4}\//, '/s1000/');
+        }
+
+        // Clean HTML tags and truncate text snippet
+        function cleanSnippet(htmlOrText, maxLength = 150) {
+          if (!htmlOrText) return '';
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = htmlOrText;
+          const text = (tempDiv.textContent || tempDiv.innerText || '').replace(/\s+/g, ' ').trim();
+          if (text.length <= maxLength) return text;
+          return text.substring(0, maxLength).trim() + '...';
+        }
+
+        // Extract exact thumbnail from Blogger entry (media$thumbnail.url)
+        function extractEntryThumbnail(entry, fallbackIndex) {
+          // Requirement: Extract the exact thumbnail uploaded in Blogger using entry.media$thumbnail.url
+          if (entry.media$thumbnail && entry.media$thumbnail.url) {
+            return getHighResThumbnail(entry.media$thumbnail.url);
+          }
+
+          // Fallback: search <img> inside post content
+          const content = (entry.content && entry.content.$t) || (entry.summary && entry.summary.$t) || '';
+          const match = content.match(/<img[^>]+src=["']([^"']+)["']/i);
+          if (match && match[1]) {
+            return getHighResThumbnail(match[1]);
+          }
+
+          return FALLBACK_POSTS[fallbackIndex]?.image || FALLBACK_POSTS[0].image;
+        }
+
+        // Split title into Main and Sub for luxury typography in Hero
+        function formatHeroTitle(fullTitle) {
+          if (!fullTitle) return { main: 'భారతీయ పౌరాణికం', sub: 'MYTHOLOGY' };
+          
+          const separators = [' - ', ' : ', ' | ', ' — '];
+          for (const sep of separators) {
+            if (fullTitle.includes(sep)) {
+              const parts = fullTitle.split(sep);
+              return {
+                main: parts[0].trim(),
+                sub: parts.slice(1).join(' ').trim()
+              };
+            }
+          }
+          
+          const words = fullTitle.split(' ');
+          if (words.length > 2) {
+            return {
+              main: words.slice(0, Math.ceil(words.length / 2)).join(' '),
+              sub: words.slice(Math.ceil(words.length / 2)).join(' ')
+            };
+          }
+
+          return { main: fullTitle, sub: 'పౌరాణిక గాథ' };
+        }
+
+        // ====================================================================
+        // SPA VIEW SWITCHING (Home Grid <--> Article Reading View)
+        // CRUCIAL: Never redirect to Blogger! Injects full content inside the app.
+        // ====================================================================
+        const homeView = document.getElementById('homeView');
+        const articleView = document.getElementById('articleView');
+        const navHomeBtn = document.getElementById('navHomeBtn');
+        const appBackdrop = document.getElementById('appBackdrop');
+
+        function showHomeView() {
+          if (articleView) articleView.classList.add('hidden');
+          if (homeView) homeView.classList.remove('hidden');
+          if (navHomeBtn) navHomeBtn.classList.add('active');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showArticleView(postIndex) {
+          const post = activePosts[postIndex] || FALLBACK_POSTS[0];
+
+          // Set Reader Cover & Titles
+          const readerTitle = document.getElementById('readerTitle');
+          const readerHeroBg = document.getElementById('readerHeroBg');
+          const readerContentBody = document.getElementById('readerContentBody');
+          const readerCategory = document.getElementById('readerCategory');
+          const readerReadTime = document.getElementById('readerReadTime');
+          const readerDate = document.getElementById('readerDate');
+
+          if (readerTitle) readerTitle.textContent = post.title || 'పౌరాణిక గాథ';
+          if (readerHeroBg) readerHeroBg.style.backgroundImage = `url('${post.image}')`;
+          if (appBackdrop) appBackdrop.style.backgroundImage = `url('${post.image}')`;
+          if (readerCategory) readerCategory.textContent = post.category || 'Truth Telugu Official';
+          if (readerReadTime) readerReadTime.textContent = post.readTime || '5 MIN READ';
+          if (readerDate) readerDate.textContent = post.publishedDate ? `ప్రచురణ: ${post.publishedDate}` : 'దివ్య పౌరాణిక గాథ';
+
+          // Inject clicked post's FULL HTML content (entry.content.$t)
+          if (readerContentBody) {
+            let htmlContent = post.content || `<p>${post.snippet}</p>`;
+            
+            // Replace any /s72-c in post content images with /s1000
+            htmlContent = htmlContent.replace(/src=["']([^"']*\/s72-c[^\/"']*)["']/gi, (match, p1) => {
+              return `src="${getHighResThumbnail(p1)}"`;
+            });
+
+            readerContentBody.innerHTML = htmlContent;
+          }
+
+          // Switch SPA views (NO Page Reload or Blogger Redirection)
+          if (homeView) homeView.classList.add('hidden');
+          if (articleView) articleView.classList.remove('hidden');
+          if (navHomeBtn) navHomeBtn.classList.remove('active');
+
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ====================================================================
+        // DATA MAPPING LOGIC:
+        // - Hero Section (Index 0): Absolute latest post
+        // - Bottom Grid (Index 1, 2, 3): Next latest posts
+        // - Extra Grid (Index 4, 5, 6): Additional fetched posts from max-results=7
+        // ====================================================================
+        function renderHomePosts(posts, isLiveFeed = true) {
+          activePosts = posts;
+
+          // 1. HERO SECTION (Top Large Card - Array Index 0)
+          const heroPost = posts[0] || FALLBACK_POSTS[0];
+          const heroImg = heroPost.image || FALLBACK_POSTS[0].image;
+          const heroTitle = heroPost.title || 'భారతీయ పౌరాణికం';
+          const { main, sub } = heroPost.titleMain ? { main: heroPost.titleMain, sub: heroPost.titleSub } : formatHeroTitle(heroTitle);
+
+          const heroBg = document.getElementById('heroBg');
+          const heroTitleMain = document.getElementById('heroTitleMain');
+          const heroTitleSub = document.getElementById('heroTitleSub');
+          const heroSnippet = document.getElementById('heroSnippet');
+
+          if (heroBg) heroBg.style.backgroundImage = `url('${heroImg}')`;
+          if (appBackdrop) appBackdrop.style.backgroundImage = `url('${heroImg}')`;
+          if (heroTitleMain) heroTitleMain.textContent = main;
+          if (heroTitleSub) heroTitleSub.textContent = sub;
+          if (heroSnippet) heroSnippet.textContent = heroPost.snippet || FALLBACK_POSTS[0].snippet;
+
+          // 2. BOTTOM GRID SECTION (Array Index 1, 2, 3)
+          for (let i = 1; i <= 3; i++) {
+            const cardPost = posts[i] || FALLBACK_POSTS[i];
+            const cardBg = document.getElementById(`cardBg${i}`);
+            const cardTitle = document.getElementById(`cardTitle${i}`);
+
+            if (cardBg) cardBg.style.backgroundImage = `url('${cardPost.image || FALLBACK_POSTS[i].image}')`;
+            if (cardTitle) cardTitle.textContent = cardPost.title || FALLBACK_POSTS[i].title;
+          }
+
+          // 3. EXTRA POSTS (Array Index 4, 5, 6) if returned from max-results=7
+          const extraStoriesWrap = document.getElementById('extraStoriesWrap');
+          const extraGrid = document.getElementById('extraGrid');
+          if (extraStoriesWrap && extraGrid) {
+            if (posts.length > 4) {
+              extraStoriesWrap.classList.add('has-posts');
+              extraGrid.innerHTML = '';
+              for (let i = 4; i < posts.length; i++) {
+                const extraPost = posts[i];
+                const cardEl = document.createElement('div');
+                cardEl.className = 'story-card';
+                cardEl.setAttribute('role', 'button');
+                cardEl.setAttribute('tabindex', '0');
+                cardEl.innerHTML = `
+                  <div class="story-card-bg" style="background-image: url('${extraPost.image}')"></div>
+                  <div class="story-card-overlay"></div>
+                  <h3 class="story-title">${extraPost.title}</h3>
+                `;
+                cardEl.addEventListener('click', () => showArticleView(i));
+                cardEl.addEventListener('keydown', (e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    showArticleView(i);
+                  }
+                });
+                extraGrid.appendChild(cardEl);
+              }
+            } else {
+              extraStoriesWrap.classList.remove('has-posts');
+            }
+          }
+
+          // Feed status badge
+          const feedStatusText = document.getElementById('feedStatusText');
+          const feedStatusDot = document.querySelector('.status-dot');
+          if (feedStatusText) {
+            if (isLiveFeed && posts.length > 0) {
+              feedStatusText.textContent = `Blogger: ${posts.length} Posts Live`;
+              if (feedStatusDot) feedStatusDot.style.background = '#10b981';
+            } else {
+              feedStatusText.textContent = 'Blogger Connected (Preview Stories)';
+              if (feedStatusDot) feedStatusDot.style.background = '#f59e0b';
+            }
+          }
+        }
+
+        // ====================================================================
+        // DYNAMIC FETCH FUNCTION: Blogger API
+        // ====================================================================
+        async function fetchBloggerPosts() {
+          const feedStatusText = document.getElementById('feedStatusText');
+          if (feedStatusText) feedStatusText.textContent = 'కథలను లోడ్ చేస్తోంది... / Loading...';
+
+          try {
+            const response = await fetch(BLOGGER_FEED_URL, { cache: 'no-store' });
+            if (!response.ok) {
+              throw new Error(`HTTP Error ${response.status}`);
+            }
+
+            const data = await response.json();
+            const entries = data.feed && data.feed.entry ? data.feed.entry : [];
+
+            if (entries.length > 0) {
+              const parsedPosts = entries.slice(0, 7).map((entry, idx) => {
+                const title = entry.title ? entry.title.$t : 'కథనం';
+                const rawContent = (entry.content && entry.content.$t) || (entry.summary && entry.summary.$t) || '';
+                const snippet = cleanSnippet(rawContent, 150);
+                
+                // Requirement 3: Extract exact thumbnail from entry.media$thumbnail.url & replace /s72-c with /s1000
+                const highResImage = extractEntryThumbnail(entry, idx);
+                const publishedDate = entry.published ? new Date(entry.published.$t).toLocaleDateString('te-IN', { year: 'numeric', month: 'long', day: 'numeric' }) : '';
+
+                return {
+                  title,
+                  snippet,
+                  image: highResImage,
+                  // Requirement 4: Full HTML content from entry.content.$t
+                  content: rawContent || `<p>${snippet}</p>`,
+                  category: entry.category && entry.category[0] ? entry.category[0].term : 'Truth Telugu Official',
+                  readTime: `${Math.max(3, Math.ceil(snippet.length / 50))} MIN READ`,
+                  publishedDate
+                };
+              });
+
+              // Supplement if fewer than 4 posts
+              while (parsedPosts.length < 4) {
+                parsedPosts.push(FALLBACK_POSTS[parsedPosts.length]);
+              }
+
+              renderHomePosts(parsedPosts, true);
+            } else {
+              // 0 posts in blog yet: render authentic Telugu mythology preview stories
+              renderHomePosts(FALLBACK_POSTS, false);
+            }
+          } catch (error) {
+            console.warn('Blogger API fetch notice:', error);
+            renderHomePosts(FALLBACK_POSTS, false);
+            if (feedStatusText) feedStatusText.textContent = 'Blogger Feed Ready (Preview Stories)';
+          }
+        }
+
+        // ====================================================================
+        // EVENT LISTENERS: CLICKING POSTS OPENS IN-APP READING VIEW
+        // ====================================================================
+        
+        // 1. Hero Card -> Post Index 0
+        const heroCard = document.getElementById('heroCard');
+        if (heroCard) {
+          heroCard.addEventListener('click', () => showArticleView(0));
+          heroCard.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              showArticleView(0);
+            }
+          });
+        }
+
+        // 2. Grid Cards -> Post Indexes 1, 2, 3
+        const card1 = document.getElementById('card1');
+        if (card1) {
+          card1.addEventListener('click', () => showArticleView(1));
+          card1.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              showArticleView(1);
+            }
+          });
+        }
+
+        const card2 = document.getElementById('card2');
+        if (card2) {
+          card2.addEventListener('click', () => showArticleView(2));
+          card2.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              showArticleView(2);
+            }
+          });
+        }
+
+        const card3 = document.getElementById('card3');
+        if (card3) {
+          card3.addEventListener('click', () => showArticleView(3));
+          card3.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              showArticleView(3);
+            }
+          });
+        }
+
+        // Back to Home Buttons
+        const backHomeTopBtn = document.getElementById('backHomeTopBtn');
+        const backHomeBottomBtn = document.getElementById('backHomeBottomBtn');
+        const logoBtn = document.getElementById('logoBtn');
+
+        if (backHomeTopBtn) backHomeTopBtn.addEventListener('click', showHomeView);
+        if (backHomeBottomBtn) backHomeBottomBtn.addEventListener('click', showHomeView);
+        if (logoBtn) logoBtn.addEventListener('click', showHomeView);
+        if (navHomeBtn) navHomeBtn.addEventListener('click', showHomeView);
+
+        const navExploreBtn = document.getElementById('navExploreBtn');
+        if (navExploreBtn) {
+          navExploreBtn.addEventListener('click', () => {
+            showHomeView();
+            const grid = document.getElementById('storiesGrid');
+            if (grid) grid.scrollIntoView({ behavior: 'smooth' });
+          });
+        }
+
+        const navAboutBtn = document.getElementById('navAboutBtn');
+        if (navAboutBtn) {
+          navAboutBtn.addEventListener('click', () => {
+            showToast('Truth Telugu Official: సత్యం, పౌరాణికం మరియు చరిత్రల అధికారిక వేదిక.');
+          });
+        }
+
+        // Scroll to Top inside Reader
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        if (scrollToTopBtn) {
+          scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        }
+
+        // Toast Helper
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+        function showToast(msg) {
+          if (!toast || !toastMessage) return;
+          toastMessage.textContent = msg;
+          toast.classList.add('show');
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 3500);
+        }
+
+        // Share Story Button
+        const shareArticleBtn = document.getElementById('shareArticleBtn');
+        if (shareArticleBtn) {
+          shareArticleBtn.addEventListener('click', async () => {
+            const title = document.getElementById('readerTitle')?.textContent || 'Truth Telugu Official';
+            try {
+              if (navigator.share) {
+                await navigator.share({
+                  title: title,
+                  text: `${title} - Truth Telugu Official వెబ్‌సైట్‌లో చదవండి:`,
+                  url: window.location.href
+                });
+              } else {
+                await navigator.clipboard.writeText(window.location.href);
+                showToast('కథ లింక్ కాపీ చేయబడింది! Link copied to clipboard.');
+              }
+            } catch (err) {
+              await navigator.clipboard.writeText(window.location.href);
+              showToast('కథ లింక్ కాపీ చేయబడింది! Link copied to clipboard.');
+            }
+          });
+        }
+
+        // Search Interaction
+        const searchToggleBtn = document.getElementById('searchToggleBtn');
+        const searchBox = document.getElementById('searchBox');
+        const searchInput = document.getElementById('searchInput');
+
+        if (searchToggleBtn && searchBox && searchInput) {
+          searchToggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            searchBox.classList.toggle('open');
+            if (searchBox.classList.contains('open')) {
+              searchInput.focus();
+            }
+          });
+
+          document.addEventListener('click', (e) => {
+            if (!searchBox.contains(e.target) && e.target !== searchToggleBtn) {
+              searchBox.classList.remove('open');
+            }
+          });
+
+          searchInput.addEventListener('input', () => {
+            const q = searchInput.value.toLowerCase().trim();
+            if (!q) return;
+
+            const matchIndex = activePosts.findIndex((p) =>
+              (p.title && p.title.toLowerCase().includes(q)) ||
+              (p.snippet && p.snippet.toLowerCase().includes(q))
+            );
+
+            if (matchIndex !== -1) {
+              showArticleView(matchIndex);
+              searchBox.classList.remove('open');
+            }
+          });
+        }
+
+        // Refresh Feed Button
+        const refreshFeedBtn = document.getElementById('refreshFeedBtn');
+        if (refreshFeedBtn) {
+          refreshFeedBtn.addEventListener('click', () => {
+            fetchBloggerPosts();
+            showToast('బ్లాగర్ ఫీడ్ తాజాకరించబడింది / Feed refreshed!');
+          });
+        }
+
+        // View/Copy Code Modal
+        const viewCodeBtn = document.getElementById('viewCodeBtn');
+        const codeModal = document.getElementById('codeModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const copyCodeBtn = document.getElementById('copyCodeBtn');
+        const copyFeedback = document.getElementById('copyFeedback');
+        const codeDisplayArea = document.getElementById('codeDisplayArea');
+
+        if (viewCodeBtn && codeModal) {
+          viewCodeBtn.addEventListener('click', () => {
+            const fullDoc = document.documentElement.outerHTML;
+            if (codeDisplayArea) codeDisplayArea.textContent = fullDoc;
+            codeModal.classList.add('open');
+          });
+        }
+
+        if (closeModalBtn && codeModal) {
+          closeModalBtn.addEventListener('click', () => {
+            codeModal.classList.remove('open');
+          });
+        }
+
+        if (codeModal) {
+          codeModal.addEventListener('click', (e) => {
+            if (e.target === codeModal) {
+              codeModal.classList.remove('open');
+            }
+          });
+        }
+
+        if (copyCodeBtn) {
+          copyCodeBtn.addEventListener('click', async () => {
+            const fullDoc = document.documentElement.outerHTML;
+            try {
+              await navigator.clipboard.writeText(fullDoc);
+              if (copyFeedback) {
+                copyFeedback.style.display = 'inline';
+                setTimeout(() => {
+                  copyFeedback.style.display = 'none';
+                }, 3000);
+              }
+            } catch (err) {
+              console.error('Failed to copy code:', err);
+            }
+          });
+        }
+
+        // Initial fetch
+        fetchBloggerPosts();
+      })();
+    </script>
+  </body>
+</html>
